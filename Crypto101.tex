@@ -2183,15 +2183,16 @@ Security level in bits & Discrete log key bits & ECC key bits\\
 Using Diffie-Hellman, we can agree on shared secrets across an
 insecure Internet, safe from eavesdroppers. However, while an attacker
 may not be able to simply get the secret from eavesdropping, an \emph{active}
-attacker can still break the system. If an attacker (Mallory) is in
-between Alice and Bob, they can still perform the Diffie-Hellman
+attacker can still break the system. If that attacker (Mallory) is in
+between Alice and Bob, they can perform the Diffie-Hellman
 protocol twice: once with Alice, where the attacker pretends to be
 Bob, and once with Bob, where the attacker pretends to be Alice.
 
 \includegraphics[width=.9\linewidth]{./Illustrations/DiffieHellman/MITM.pdf}
 
-Alice and Bob will have a shared secret, but the secret is shared with
-%**HMM** ? No: Alice and Bob do NOT have a shared secret, i.e., there is no single secret number they both know. There is a shared secret between Alice and Mallory, and /another/ shared secret between Mallory and Bob. Therefore, the consequence "The attacker can then simply take all the messages they get from one person and send them to the other" is also wrong or at least quite misleading, isn't it? It must be:
+%**HMM** ?? Alice and Bob do NOT have a shared secret, i.e., there is no single secret number they both know. There is a shared secret between Alice and Mallory, and /another/ shared secret between Mallory and Bob. Therefore, the consequence "The attacker can then simply take all the messages they get from one person and send them to the other" is also wrong or at least quite misleading, isn't it? It must be:
+Alice and Bob will believe to have a shared secret, but actually, there is
+one secret shared between Alice and Mallory, and \emph{another} one between Bob and
 Mallory. The attacker can then simply take all the messages they get
 from one person, decrypt and re-encrypt them and send the result to the other.
 Between decrypting and encrypting, they can look at the
