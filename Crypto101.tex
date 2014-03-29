@@ -2182,7 +2182,7 @@ Security level in bits & Discrete log key bits & ECC key bits\\
 
 Using Diffie-Hellman, we can agree on shared secrets across an
 insecure Internet, safe from eavesdroppers. However, while an attacker
-may not be able to simply get the secret from eavesdropping, an active
+may not be able to simply get the secret from eavesdropping, an empf{active}
 attacker can still break the system. If an attacker (Mallory) is in
 between Alice and Bob, they can still perform the Diffie-Hellman
 protocol twice: once with Alice, where the attacker pretends to be
@@ -2191,10 +2191,13 @@ Bob, and once with Bob, where the attacker pretends to be Alice.
 \includegraphics[width=.9\linewidth]{./Illustrations/DiffieHellman/MITM.pdf}
 
 Alice and Bob will have a shared secret, but the secret is shared with
+%**HMM** ? No: Alice and Bob do NOT have a shared secret, i.e., there is no single secret number they both know. There is a shared secret between Alice and Mallory, and /another/ shared secret between Mallory and Bob. Therefore, the consequence "The attacker can then simply take all the messages they get from one person and send them to the other" is also wrong or at least quite misleading, isn't it? It must be:
 Mallory. The attacker can then simply take all the messages they get
-from one person and send them to the other, they can look at the
-plaintext messages, remove messages, and they can also modify them in
-any way they choose.
+from one person, decrypt and re-encrypt them and send the result to the other.
+Between decrypting and encrypting, they can look at the
+plaintext messages, they can modify them, and they can even remove messages
+or insert new ones---all without Alice or Bob seeing anything other than
+messages correctly encrypted with their respective secret.
 
 To make matters worse, even if one of the two participants was somehow
 aware that this was going on, they would have no way to get the other
