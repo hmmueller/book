@@ -2701,6 +2701,8 @@ important cryptographic primitives. They just happen to be commonly
 ** Message authentication codes
 *** Description
 
+A DUMMY CHANGE ___ ___
+
 A \Gls{MAC} is a small bit of information that can be used to check
 the authenticity and the integrity of a message. These codes are often
 called "tags". A MAC algorithm takes a message of arbitrary length and
